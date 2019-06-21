@@ -159,12 +159,17 @@ function printbill(event) {
   // सैनामैना-१०,रूपन्देही
   // देवदेह(९,१०),भलुही
 
+//   <h4  class="mt-3" >झिमझिमियाँ सामुदायिक वन उपभोक्ता समूह</h4>
+// <p style="margin-left:100px !important;">सैनामैना-१०,रूपन्देही</p>
 //  <h4  class="mt-3" >जनप्रिय सामुदायिक वन उपभोक्ता समूह</h4>
+{/* <h4  class="mt-3" >बुद्द सामुदायिक वन उपभोक्ता समूह</h4>
+देवदेह-५, खैरेनी */}
+
   
   if (bikritype === "उपभाेक्ता भित्र बिक्री") {
     title = `<div class="logo" style="margin-left:240px !important;">
-<h4  class="mt-3" >झिमझिमियाँ सामुदायिक वन उपभोक्ता समूह</h4>
-<p style="margin-left:100px !important;">सैनामैना-१०,रूपन्देही</p>
+<h4  class="mt-3" >बुद्द सामुदायिक वन उपभोक्ता समूह</h4>
+<p style="margin-left:100px !important;">देवदेह-५, खैरेनी</p>
   </div>
   <br/>
   <div class="row">
@@ -184,8 +189,8 @@ function printbill(event) {
   } else {
 
     title = `<div class="logo" style="margin-left:240px !important;">
-    <h4  class="mt-3" >झिमझिमियाँ सामुदायिक वन उपभोक्ता समूह</h4>
-    <p style="margin-left:100px !important;">सैनामैना-१०,रूपन्देही</p>
+    <h4  class="mt-3" >बुद्द सामुदायिक वन उपभोक्ता समूह</h4>
+    <p style="margin-left:100px !important;">देवदेह-५, खैरेनी</p>
    </div>
    <br/>
    <div class="row">
