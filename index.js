@@ -119,22 +119,22 @@ const saltRounds = 10;
 var nepali = require('get-nepali-number');
 
 
-// var con = mysql.createConnection({
-//     host: "localhost",
-//     user: "buddha",
-//     password: "Sha677@#",
-//     database: 'buddhasaba',
-//     multipleStatements: true
-// });
-
 var con = mysql.createConnection({
     host: "localhost",
-    user: "root",
-    password: "",
-    port: 3308,
+    user: "buddha",
+    password: "Sha677@#",
     database: 'buddhasaba',
     multipleStatements: true
 });
+
+// var con = mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: "",
+//     port: 3308,
+//     database: 'buddhasaba',
+//     multipleStatements: true
+// });
 
 
 getEmployeeNames = function () {
