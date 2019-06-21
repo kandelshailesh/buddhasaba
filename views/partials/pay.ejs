@@ -1,0 +1,232 @@
+<style>
+.modal input , .modal select
+{
+    height:40px !important;
+    border-radius:5px !important;
+}</style>
+<datalist id="kharcha">
+      <% accountinformation.forEach(function(result) { %>
+      <% if(result.type==='k') { %>
+                                    <option value='<%= result.accountname %>'>
+                                        <%= result.accountname %>
+                                    </option>
+                                    <% } }); %>
+  </datalist>
+
+   <datalist id="aamdani">
+      <% accountinformation.forEach(function(result) { %>
+      <% if(result.type==='a') { %>
+                                    <option value='<%= result.accountname %>'>
+                                        <%= result.accountname %>
+                                    </option>
+                                    <% } }); %>
+  </datalist>
+
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="paymentreceiptjournalcontraform">
+            <form id="paymenttranscation" onkeypress="return event.keyCode != 13;" onsubmit="return false" action="" method="post">
+            <div class="row">
+                <div class="col-12 mt-2 billdata">
+                    <br />
+                    <input style="font-size:20px; width:150px; text-align: center;  background-color:red;" class="border-0" name="transactiontitle" id="transactiontitle" value="आम्दानी" readonly>
+                    
+                    <input id='datemodify' style="font-size: 15px; border:1px solid #ccc !important; height:32px !important; border-radius:5px !important;   box-shadow:2px 2px 3px 4px #ccc !important;" required name="datemodify" class='ml-1 text-center float-right d-inline' autocomplete="off">
+                    <h6 class='dates text-dark mt-1 d-inline float-right mr-2'>मिति:</h6>
+                </div>
+            </div>
+            
+                <div style="max-height: 400px;" class="table-responsive mt-2">
+                    <table style="position:relative;  box-shadow:2px 2px 3px 4px #ccc !important;" class="paymentheader table table-bordered  paymenttable">
+                        <tr style="font-size: 30px !important; border:1px solid #ccc !important;    box-shadow:2px 2px 3px 4px #ccc !important;" class=" m-0  row text-center">
+                            <th style="font-size: 20px !important; " class="col-md-2">क्रम</th>
+                            <th style="font-size: 20px !important; " class="col-md-6">उपशीर्षक</th>
+                            <th style="font-size: 20px !important; " class="col-md-4 ">मूल्य</th>
+                        </tr>
+                    </table>
+                </div>
+               
+                <div class="row mt-4">
+                    <div class="col-md-10">
+                        <textarea placeholder="सारांश...." style="font-size: 15px; border:1px solid #ccc !important; border-radius:5px !important;   box-shadow:2px 2px 3px 4px #ccc !important;" name="narrationbox" id="narrationbox" rows="2" cols="70"></textarea>
+                    </div>
+                    <button type="submit" class="btn ml-1 h-25 col-md-1 btn-primary"><i class="fa fa-paper-plane"></i>
+                    </button>
+                    <button type="reset" id="resetpayment" class="btn d-none resetpayment ml-1 h-25 col-md-1 btn-primary">sldls
+                    </button>
+                </div>
+            </form>
+        </div>
+       
+        
+        <button type="button" id="hello" class="btn btn-primary d-none" data-toggle="modal" data-target="#myModal" accesskey="h">
+            Create Account
+        </button>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content" style="margin:auto; height: auto; width: 600px;">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">उपशीर्षक बनाउनुहोस</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form class="accountinformations">
+                        <div class="modal-body ml-2 ">
+                            <div class="row ">
+                                <div class="col-md-9 accountinformation">
+                                    
+                                        <label style="font-size: 12px;">नाम</label><input type="text" name="accountname" id="accountname" tabindex="-1" class="ml-2  w-75 form-control d-inline" required autofocus>
+                                        <div class="mt-2 form-group">
+                                        <label style="font-size: 12px;">समूह</label><select class="ml-2 w-75 form-control d-inline" style="font-size: 12px; text-align:center; text-align-last:center;" name="accountgroup" onchange="javascript:changeaccounttype(event)" id="accountgroup" required>
+                                            <option value="0">------------</option>
+                                            <% results.forEach(function(result) { %>
+                                            <% if(result.type==='k') { %>
+                                            <option value='<%= result.id %>'>
+                                                <%= result.katitle %>
+                                            </option>
+                                            <%} }); %>
+                                        </select>
+                                       
+                                    </div>
+                                        <br>
+                                        
+                                      
+                                 
+                                </div>
+                              
+                            </div>
+                        </div>
+                            <div class="modal-footer">
+                                
+                                <button  onclick="javascript:submitaccount(event);" class="btn btn-primary">जाेड्नुहाेस</button>
+                                <button type="reset" class="btn resetaccount d-none btn-secondary" id="closecreateaccount" data-dismiss="modal">बन्द गर्नुहाेस</button>
+                            </div>
+                       
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+          <div class="modal fade" id="myModals" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content" style="margin:auto; height: auto; width: 600px;">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">उपशीर्षक बनाउनुहोस</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form class="accountinformationss">
+                        <div class="modal-body ml-2 ">
+                            <div class="row ">
+                                <div class="col-md-9 accountinformation ">
+                                    
+                                        <label style="font-size: 12px;">नाम</label><input type="text" name="accountname" id="accountname" tabindex="-1" class="ml-2 w-75 form-control d-inline" required autofocus>
+                                        <div class="mt-2 form-group">
+                                        <label style="font-size: 12px;">समूह</label><select class="ml-2 w-75 form-control d-inline" style="font-size: 12px; height:30px; text-align:center; text-align-last:center;" name="accountgroup" onchange="javascript:changeaccounttype(event)" id="accountgroup" required>
+                                            <option value="0">------------</option>
+                                            <% results.forEach(function(result) { %>
+                                            <% if(result.type==='a') { %>
+                                            <option value='<%= result.id %>'>
+                                                <%= result.katitle %>
+                                            </option>
+                                            <%} }); %>
+                                        </select>
+                                       
+                                    </div>
+                                        <br>
+                                        
+                                      
+                                 
+                                </div>
+                              
+                            </div>
+                        </div>
+                            <div class="modal-footer">
+                                
+                                <button  onclick="javascript:submitaccounts(event);" class="btn btn-primary">जाेड्नुहाेस</button>
+                                <button type="reset" class="btn resetaccount d-none btn-secondary" id="closecreateaccount" data-dismiss="modal">बन्द गर्नुहाेस</button>
+                            </div>
+                       
+                    </form>
+                </div>
+            </div>
+        </div>
+ <!--        <button type="button" class="btn btn-primary d-none" data-toggle="modal" data-target="#contraentry">
+            Create Contra
+        </button> -->
+        <button type="button" class="btn btn-primary d-none" data-toggle="modal" data-target="#s">
+            उपशाी्रषक
+        </button>
+        <!-- Form for Contra Voucher  -->
+      
+        <!-- <button type="button" class="btn btn-primary d-none" data-toggle="modal" data-target="#contraentry"  accesskey="c">
+  Contra form
+</button> -->
+    </div>
+    <div class="modal fade" id="subtitle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="margin:auto; height: 350px; width: 400px;">
+                <form class="contraform" action="" >
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel1">शीर्षक </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body ">
+                        <label class="mt-2" style="font-size: 18px;">शीर्षकको नाम</label><input class="ml-2 h-50 p-0 w-75  mt-2 form-control d-inline" name="title" style="text-align-last:center; height:40px !important;border-radius:5px !important;" id="titlename" required>
+                        <div class="form-group">
+                        <label class="mt-2" style="font-size: 18px;">शीर्षकको प्रकार</label><select class="ml-2 h-50 p-0 w-75  mt-1 form-control d-inline" name="title" style="text-align-last:center; height:40px !important;border-radius:5px !important;" id="titletype" required>
+                            <option value='k'>खर्च</option>
+                            <option value='a'>आम्दानी</option>
+                        </select>
+                    </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn resetaccount btn-secondary" id="closecreatetitle" data-dismiss="modal">बन्द गर्नुहाेस</button>
+                        <button  class="btn btn-primary" onclick="javascript:submittitles(event)">जाेड्नुहाेस</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- <button type="button" class="btn btn-primary d-none" data-toggle="modal" data-target="#contraentry"  accesskey="c">
+  Contra form
+</button> -->
+    <datalist id="accounttype" class="accountnamedetails" style=" margin-left:300px !important;">
+        <% accountinformation.forEach(function(result) { %>
+        <option name=`${result.id}`>
+            <%= result.accountname %>
+        </option>
+        <hr />
+        <% }); %>
+    </datalist>
+    <div class="col-md-2 mt-3">
+        <nav class="nav flex-column bg-white" style="box-shadow:4px 4px 2px 2px green; border:1px solid green; color:red;">
+         
+             <a id="hello" style="border:1px solid green;" class="nav-link" data-toggle="modal" data-target="#subtitle" accesskey="c">
+                शीर्षक बनाउनुहाेस
+            </a>
+            <a id="hello" style="border:1px solid green;" class="nav-link" data-toggle="modal" data-target="#myModals" accesskey="h">
+                आम्दानीको उपशीर्षक बनाउनुहाेस 
+            </a>
+            <a id="hello" style="border:1px solid green;" class="nav-link" data-toggle="modal" data-target="#myModal" accesskey="h">
+                खर्चको उपशीर्षक बनाउनुहाेस
+            </a>
+           
+            <a class="nav-link" style="color:red;border:1px solid green;" onclick="javascript:aamdaniform();" href="#">आम्दानी</a>
+            <a class="nav-link" style="color:red;border:1px solid green;" onclick="javascript:kharchaform();" href="#">खर्च</a>
+    
+            
+        </nav>
+    </div>
+    <p id="transactionid">
+        <%= transactionno  %>
+    </p>

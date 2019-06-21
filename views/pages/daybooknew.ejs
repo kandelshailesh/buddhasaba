@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+    <% include ../partials/stylepayment %>
+    <% include ../partials/stylebilling %>
+    <link rel="stylesheet" href="https://unpkg.com/nepali-date-picker@2.0.0/dist/nepaliDatePicker.min.css" integrity="sha384-Fligaq3qH5qXDi+gnnhQctSqfMKJvH4U8DTA+XGemB/vv9AUHCwmlVR/B3Z4nE+q" crossorigin="anonymous">
+    <style>
+        .credittable tr th {
+        height: 30px !important;
+    }
+    a.nav-link:hover
+    {
+        background-color: red !important;
+    }
+
+    .credittable tr td {
+        height: 30px !important;
+    }
+
+    .debittable tr th {
+        height: 30px !important;
+    }
+
+    .debittable tr td {
+        height: 30px !important;
+    }
+    input
+{
+border-radius: 0px !important; 
+height:40px !important; 
+font-size: 15px !important; 
+}
+input:disabled
+{
+background-color: white !important;
+border:0px;
+color:black;
+}
+table tr th
+{
+    font-size: 20px !important;
+}
+
+table tr td
+{
+    font-size: 16px !important;
+}
+
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <% include ../partials/header %>
+    </header>
+    <datalist id="accounttype" class="accountnamedetails">
+        <% accountinformation.forEach(function(result) { if( result.id=='1'){ %>
+        <option name=`${result.id}`>
+            <%= result.accountname %>
+        </option>
+        <% } else { %>
+        <option name=`${result.id}`>
+            <%= result.accountname %>
+        </option>
+        <% } %>
+        <hr />
+        <% }); %>
+    </datalist>
+    <div class="row">
+        <div class="col-md-2 ">
+            <nav class="nav flex-column" style="color:red; border:1px solid green; box-shadow:2px 2px green;">
+                <a style="color:red; border:1px solid green; box-shadow:2px 2px green; font-size:18px;" href="/daybookkhoj" class="nav-link">दैनिकी किताब खोज</a>
+                <a style="color:red; border:1px solid green; box-shadow:2px 2px green; font-size:18px;" href="/daybookreturn" class="nav-link">दैनिकी किताब परिवर्तन</a>
+            </nav>
+        </div>
+        <div class="col-md-9">
+            <h2 class="text-center mt-2">दैनिकी किताब</h2>
+            <form class="daybookform" onsubmit="return false">
+                <div class="row">
+                    <div class="col-12 mt-3 text-center">
+                        <label> सुरू मिति </label>
+                        <input id="daybookinitialdate" style="font-size: 15px; border:1px solid lightblue !important; height:32px !important; border-radius:5px !important;  box-shadow: 2px 2px lightblue !important;"  class="text-center ml-2 mr-2" autocomplete="off">
+                        <label > अन्तिम मिति </label>
+                        <input id="daybookfinaldate" style="font-size: 15px; border:1px solid lightblue !important; height:32px !important; border-radius:5px !important;  box-shadow: 2px 2px lightblue !important;"  class="text-center ml-2 mr-2" autocomplete="off">
+                        <button id="daybookkhoj" class="btn btn-primary btn-md"> खाेज</button>
+                    </div>
+                </div>
+                <div class="container mt-5 ">
+                    <div class="row">
+                        <div class="col-md-2 text-center ml-3">
+                        </div>
+                        <div class="col-md-10 ml-2  daybookdiv">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <p class="nodata" style="text-align-last: center; display: none;"> </p>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/daybook.js"></script>
+</body>
+
+</html>

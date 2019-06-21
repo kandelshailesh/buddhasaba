@@ -1,0 +1,62 @@
+<style>
+
+</style>
+<div class="row">
+    <div class="col-md-2">
+        <nav class="nav flex-column" style="color:red; border:1px solid green; box-shadow:2px 2px green;">
+            <a style="color:red; border:1px solid green; box-shadow:2px 2px green;" class="nav-link padhadhikaariadd padhadhikaariform-1" id="padhadhikaariform-1">पदाधिकारी थप</a>
+            <a  style="color:red; border:1px solid green; box-shadow:2px 2px green;" class="nav-link padhadhikaarikhoj padhadhikaariform-2" id="padhadhikaariform-2">पदाधिकारी खाेज</a>
+
+        
+            <a style="color:red; border:1px solid green; box-shadow:2px 2px green;" data-toggle="modal" data-target="#titleModal" class="nav-link padhadhikaarititle " >समिति थप्नुहोस</a>
+            <a  style="color:red; border:1px solid green; box-shadow:2px 2px green;" data-toggle="modal" data-target="#postModal" class="nav-link padhadhikaaripost">पद थप्नुहोस</a>
+
+         
+        </div>
+    
+    <div class="col-md-10 ">
+
+        <form class="padhadhikaariaddform" action="" onkeypress="return event.keyCode != 13;">
+        
+
+
+            <div class="row padhadhikaariformshow-1 mt-4">
+<div class="col-md-2"></div>
+<div class="col-md-10 ">
+
+        <label  class="ml-5"> समिति नं</label> <input required type="text" style="font-size: 15px; border:1px solid lightblue !important; height:32px !important; border-radius:5px !important;  box-shadow: 2px 2px lightblue !important;text-align:center;" id="samitino" autofocus class="d-inline ml-2 ">
+                <label class="ml-4"> सुरु मिति</label> <input type="text" style="font-size: 15px; border:1px solid lightblue !important; height:32px !important; border-radius:5px !important;  box-shadow: 2px 2px lightblue !important;" autocomplete="off" id="startdate" class="d-inline ml-2">
+</div>
+<div class="col-md-1"></div>
+                <div class="col-md-10 float-right mt-2">
+                    
+                    <table class="table  padhadhikaaritable table-md">
+                        <tr  class=" m-0  row text-center ">
+                            <th style="font-size:20px !important;"  class="col-md-2">क्रम नं</th>
+                            <th style="font-size:20px !important;"  class="col-md-4">नाम</th>
+                            <th style="font-size:20px !important;"  class="col-md-3">पद</th>
+                            <th  style="font-size:20px !important;" class="col-md-3">समिति</th> 
+                
+                        </tr>
+                    </table>
+                    <button type='reset' id="resetpadhadhikaariaddform" class='btn d-none  mt-2 btn-danger '>रद्द गर्नुहाेस</button><button type='submit' class=' ml-1 mt-2 btn btn-primary float-right'>जाेड्नुहाेस</button>
+                </div>
+            </div>
+        
+                 
+          
+        </form>
+      <form class='padhadhikaarikhojform mt-0 '>
+    <div class='padhadhikaarikhoj padhadhikaariformshow-2  d-none  row '>
+      <div class="col-md-12 text-center">
+    	<label> समिति नं:</label> <input id="samitino1" style="font-size: 15px; border:1px solid lightblue !important; height:32px !important; border-radius:5px !important;  box-shadow: 2px 2px lightblue !important; "   class="d-inline ml-2 text-center">
+
+
+        <a class='btn ml-2 btn-outline-primary col-md-1 padhadhikaarikhojbutton' >खाेज</a>
+    </div>
+    <div class="col-md-12 mt-2 appendsearch"></div>
+</div>
+
+</form>
+    </div>
+</div>

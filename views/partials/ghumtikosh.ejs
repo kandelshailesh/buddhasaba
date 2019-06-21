@@ -1,0 +1,56 @@
+<div class="row">
+   <div class="col-md-2  p-0 " style="font-size:20px; max-height:300px; oveflow-y:scroll;">
+        <ul class="list-group border border-2  bg-light p-0">
+            <li class="list-group-item p-0  "><a style="text-decoration:none; color:white;" class="btn btn-success w-100 rounded-0" href="/ghumtikosh">डाटा राख्नुहाेस्</a></li>
+            <li class="list-group-item  p-0 border-red"><a style="text-decoration:none; color:white;" class="btn btn-success w-100 rounded-0" href="/ghumtikoshbill">प्राप्ति</a></li>
+            <li class="list-group-item p-0 border-white"><a style="text-decoration:none; color:white;" class="btn btn-success w-100 rounded-0" href="/ghumtikoshsearch">खाेज</a></li>
+        </ul>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-8">
+      <form id="ghumtikoshinitialform" class="ghumtikoshinitialform" onkeypress="return event.keyCode != 13;"   method="post">
+        <div class="paymentreceiptjournalcontraform">
+            <div class="row">
+                <div class="col-12 mt-2 billdata">
+                    <br/>
+                    <label style="font-size:20px; width:150px; text-align: center;  background-color:red;" id="transactiontitle">घुम्तीकाेष</label><!-- <label class="ml-3">नं</label><h6 class=' text-dark  ml-2 d-inline mr-5 paymentno'></h6> -->
+                          <input form="ghumtikoshinitialform" autocomplete="off" name="returndate" required id="datechange"  class=" d-inline p-0   float-right text-center" style="font-size: 15px; border:1px solid lightblue !important; height:32px !important; border-radius:5px !important;  box-shadow: 2px 2px lightblue !important;">
+                   <h6 class='dates text-dark d-inline float-right mt-1 mr-2 ml-2'> तिर्नुपर्ने मिति: </h6>
+                    <input required form="ghumtikoshinitialform" autocomplete="off" name="givendate" id="datechange1"  class=" d-inline p-0 ml-2   float-right text-center" style="font-size: 15px; border:1px solid lightblue !important; height:32px !important; border-radius:5px !important;  box-shadow: 2px 2px lightblue !important;" >
+                   <h6 class='dates text-dark d-inline float-right mt-1 ml-2 mr-2'> लिएको मिति: </h6>
+             
+                </div>
+            </div>
+          
+                <div style="max-height: 400px;" class="table-responsive mt-2">
+                    <table class=" table table-bordered  ghumtikoshtable">
+                        <tr class=" m-0  row text-center">
+                            <th class="col-md-1">क्रम नं</th>
+                            <th class="col-md-2">उपभोक्ता नं</th>
+                            <th class="col-md-4">उपभोक्ताको नाम</th>
+                            <th class="col-md-3">लिनुको उदृेश्य</th>
+                            <th class="col-md-2">रकम</th>         
+                        </tr>
+                    </table>
+                </div>
+                <div class="row">
+
+
+                    <div class="col-md-5 ml-2">
+                           <label>ब्याज दर</label>  <input required style="font-size: 15px; border:1px solid lightblue !important; border-radius:5px !important; height:40px; width:70px; box-shadow: 2px 2px lightblue !important;" name="interestrate" id="interestrate" class="ml-1 mr-1 text-center"><label>%</label></div>
+                    <div class="col-md-6">
+                        <button type="submit" class="btn  h-100 btn-primary">
+                        जोड्नुहोस
+                    </button>
+                    <label style="font-size:23px;" class="float-right form-control-sm text-center  " id="total">
+                        रु.0</label>
+                    
+                    <button type="reset" class="btn ml-2 d-none resetform justify-content-center ghumtikoshreset btn-danger"></button>
+                
+               
+            </div>
+                
+                </div>
+            
+            </form>
+        </div>

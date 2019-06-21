@@ -1,0 +1,9 @@
+
+                <nav class="nav flex-column">
+           
+            <% results.forEach(function(result1,count) { %>
+          
+                    <a style="border:1px solid black; font-size:12px;" onclick="javascript:displaydata('<%= result1.katitle %>')" id='<%= result1.id %>' class="nav-link" ><%= result1.katitle %></a>
+                    <%  }) %>                    
+                </nav>
+         

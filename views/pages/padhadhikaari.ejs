@@ -1,0 +1,97 @@
+<!-- views/pages/index.ejs -->
+
+
+<html lang="en">
+<head>
+<style type="text/css" media="print">
+@page {
+    size: auto;   /* auto is the initial value */
+    margin: 0;  /* this affects the margin in the printer settings */
+}
+
+</style>
+
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+    <% include ../partials/head %>
+
+    <% include ../partials/stylebilling %>
+    <% include ../partials/stylepayment %>
+
+
+<style>
+
+@media screen and (max-width: 992px) {
+  body {
+    background-color: blue;
+    color: white;
+  }
+  h1
+  {
+    color:indigo;
+  }
+
+}
+@media print and (max-width: 992px) {
+ 
+  input,select
+  {
+  	border:0px !important;
+  
+  }
+
+.printbutton{
+  display:none !important;
+}
+  button
+  {
+    display:none;
+  }
+
+  select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: none; /* If you want to remove the border as well */
+	background: none;
+	}
+  
+table,tr,th,td
+{
+  border:1px solid black !important;
+}
+
+
+
+
+/* On screens that are 600px wide or less, the background color is olive */
+
+</style>
+
+    <% include ../partials/head %>
+ 
+
+</head>
+<body>
+
+<header>
+    <% include ../partials/header %>
+</header>
+
+<main>
+    <% include ../partials/padhadhikaari %>
+   
+
+</main>
+ <% include ../partials/samitititle %>
+    <% include ../partials/samitipost %>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+   
+    <script type="text/javascript" src="https://unpkg.com/nepali-date-picker@2.0.0/dist/jquery.nepaliDatePicker.min.js" integrity="sha384-bBN6UZ/L0DswJczUYcUXb9lwIfAnJSGWjU3S0W5+IlyrjK0geKO+7chJ7RlOtrrF" crossorigin="anonymous"></script>
+
+<script src="../js/padhadhikaari.js"></script>
+<script src="../js/nepalitoenglishconverter.js"></script>
+
+
+
+</body>
+</html>

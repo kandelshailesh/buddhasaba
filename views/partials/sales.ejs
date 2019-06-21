@@ -1,0 +1,98 @@
+
+<div class="salespurchaseform">
+	<form id="salespurchasetransaction" onkeypress="return event.keyCode != 13;"  action="/pay/2" method="post">
+<div class="row">
+
+    <div class="col-12 mt-2 salespurchasebill">
+        <label style="font-size:20px; width:150px; text-align: center;  background-color:red;" id="transactiontitle1">बिक्री</label>
+<label style="font-size:20px; width:100px; text-align: center;" id="billnolabel">बिल नं</label>
+
+ <input id="billno" name="billno" readonly style="width:100px !important; " type="text" class=" ml-2 form-control mr-3 text-left p-0 d-inline border-0" autocomplete="off" />
+
+         <input id="salesdate" name="salesdate" style="font-size: 15px; border:1px solid lightblue !important; height:32px !important; border-radius:5px !important;  box-shadow: 2px 2px lightblue !important;width:100px !important; " type="text" class=" ml-2 form-control mr-3 text-center p-0 d-inline float-right " autocomplete="off" required >
+        <label class='salesdateclass text-dark d-inline float-right'>मिति:</label>
+        <br>
+        <label style="font-size:15px;">बिक्री प्रकार</label>
+        <input style="font-size: 15px; border:1px solid lightblue !important; height:32px !important; border-radius:5px !important;  box-shadow: 2px 2px lightblue !important;" type="text" list="bikritype" required name="bikritypes" id="bikritypes" class="form-control w-25 d-inline ml-2 mr-2 " autofocus>
+        <datalist id="bikritype" >
+            <option>उपभाेक्ता भित्र बिक्री</option>
+            <option>पाेल चिरान</option>
+            <option>जि.ब. आपूर्ति </option>
+            <option>लिलाम प्रक्रिया</option>
+        </datalist>
+        <div class="salespurchase d-inline">
+        </div>      
+         
+        <ul class="list-group d-none">
+        </ul>
+        <br>
+  	
+    </div>
+</div>
+<p class="font-weight-bold"> काठ बिक्री</p>
+
+    <div style="max-height: 400px;" class="table-responsive mt-3">
+        <table class="salestable table table-bordered">
+            <tr style="font-size:20px !important;" class=" m-0 row text-center">
+            	<th  style="font-size:12px !important;" class="col-md-1">S.N.</th>
+                <th  style="font-size:12px !important;" class="col-md-1">गुल्ली नं</th>
+                <th  style="font-size:12px !important;" class="col-md-4">काठकाे नाम</th>
+                <!-- <th class="col-md-1">ग्रेड</th> -->
+                <th  style="font-size:12px !important;" class="col-md-2">परिमाण</th>
+                <th  style="font-size:12px !important;" class="col-md-2">मूल्य/Cft</th>
+                <th  style="font-size:12px !important;" class="col-md-2">जम्मा</th>
+            </tr>
+        </table>
+    </div>
+    <p class="font-weight-bold"> दाउरा बिक्री</p>
+    <div class="row">
+        <div class="col-md-12"  >
+            <input style="height:32px !important;" type="text" class="form-control  text-center d-inline w-25" placeholder="परिमाण" name="daauraquantity" id="quantity-0" pattern="^[०-९\.]*$">
+            <input style="height:32px !important;" pattern="^[०-९\.]*$"  type="text" class="form-control  text-center d-inline w-25" placeholder="मूल्य/के.जी" id="per-0" name="daauraper">
+            <input style="height:32px !important;" pattern="^[०-९\.]*$"  type="text" id="amount-0" class="form-control text-center  d-inline w-25" placeholder="जम्मा
+" name="daauratotal" value="०">
+        </div>
+    </div>
+       <p class="font-weight-bold"> घास बिक्री</p>
+    <div class="row">
+        <div class="col-md-12 ">
+            <input style="height:32px !important;" type="text" class="form-control   text-center d-inline w-25" placeholder="परिमाण" name="ghaasquantity" id="ghaasquantity">
+            <input style="height:32px !important;" type="text" class="form-control   text-center d-inline w-25" placeholder="मूल्य/भारी"  id="per-ghaas" name="ghaasper">
+            <input style="height:32px !important;" type="text" id="ghaastotal" class="form-control text-center  d-inline w-25" placeholder="जम्मा
+"  value="०" name="ghaastotal">
+        </div>
+    </div>
+     <p class="font-weight-bold"> अन्य</p>
+    <div class="row ">
+        <div class="col-md-12 anyetable">
+             <input type="text" style="height:32px !important;" class="form-control text-center d-inline w-25" placeholder="नाम" name="anyename" id="anyename-1">
+            <input type="text" style="height:32px !important;" class="form-control   text-center d-inline w-25" placeholder="परिमाण" name="anyequantity" id="anyequantity-1">
+            <input type="text"  style="width:80px; height:32px !important;" class="form-control   text-center d-inline " placeholder="मूल्य/चट्टा"  id="per1-anye" name="anyeper">
+            <input type="text" style="height:32px !important;" id="anyetotal-1" class="form-control text-center  d-inline w-25"  placeholder="जम्मा
+"  value="०" name="anyetotal">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 ml-5"></div>
+       
+        <label class="d-inline form-control-sm  text-center">कुल रकम रू</label>
+        <input class="d-inline form-control-sm col-md-2  border-0 text-left" name="totalamount" id="totalamount" value="०">
+<input type="number" id="totallist" name="totallist" value="1" class="d-none">
+        <button type="reset" class="btn ml-0 d-none resetpayment justify-content-center  btn-primary"> Reset
+        </button>
+        <div class="col-md-1"></div>
+        <br></br>
+    
+    </div>
+        <button type="submit"  class="btn mr-2  btn-sm float-right btn-primary"> जाेड्नुहाेस
+        </button>
+         <a href="#" class="btn mr-2  btn-sm float-right btn-primary" onclick="javascript:printbill(event);"> Print
+       </a>
+</form>
+</div>
+<datalist id="grade">
+    <option>छैन</option>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+</datalist>

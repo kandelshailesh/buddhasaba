@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    <% include ../partials/stylebilling %>
+    <style>
+table,tr,th,td
+{
+	border:1px solid black;
+	font-size: 20px !important;
+}
+
+a:active
+{
+	background-color:red !important;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <% include ../partials/header %>
+</header>
+
+<% if(status===1){ %>
+<div class="row text-center mt-3">
+	<div class="col-12">
+<form method="post" action='/ledger'>
+<p> आर्थिक वर्ष</p>
+<input id="ledgerinitialdate" autocomplete="off" name="ledgerinitialdate" class="text-center form-control d-inline" placeholder="सुरू मिति" style="height: 35px; width:200px;" >
+<input id="ledgerfinaldate" autocomplete="off" name="ledgerfinaldate" class="text-center form-control ml-3 d-inline" placeholder="अन्तिम मिति" style="height: 35px; width:200px;" >
+<button type="submit" class="btn  btn-outline-primary">खोज</button>
+</form>
+</div>
+</div>
+<div class="row mt-4 appendresult">
+            <div class="col-md-2">
+                <% include ../partials/groupledger %>
+
+            </div>
+
+            <div id="displayledger" class="col-md-7">
+<label class="text-center" style="margin-left:40%;">मिति: <%= initialdatedetails %> देखि <%= finaldatedetails %> </label>
+
+
+			<div class="table-responsive displayledgertable " style="max-height:300px;">
+<table class="table ">
+	<tr class="row m-0 text-center">
+		<th class="col-md-4">शीर्षकको नाम</th>
+		<th class="col-md-4">शीर्षक प्रकार </th>
+		<th class="col-md-4"> रकम</th>
+	</tr>
+
+<% results1.forEach(function(result,count){ %>
+	<tr class="row m-0 p-0 text-center">
+		<td class="col-md-4"><%= result.katitle %></td>
+		<% if (result.type==='k') { %>
+		<td class="col-md-4">खर्च</td>
+
+		<% } else { %>
+		<td class="col-md-4">आम्दानी</td>
+		<% } %>
+		<td class="col-md-4"><%= result.totalamount %> </td>
+	</tr>
+<% }) %>
+</table>
+</div>
+</div>
+<div class="col-md-3 totaldc">
+	<div class="row">
+	<div class="col-md-5 text-center">
+
+	<label >जम्मा खर्च </label>
+	<br/>
+	<label class="text-center ml-1">रू<%= totalkharcha %></label> 
+</div>
+<div class="col-md-6 text-center">
+	<label>जम्मा आम्दानी</label> <br/>
+	<label class="ml-1">रू<%= totalaamdani %></label>
+</div>
+</div>
+</div>
+</div>
+<% } else { %>
+<div class="row text-center mt-3">
+	<div class="col-12">
+<form method="post" action='/ledger'>
+<p> आर्थिक वर्ष</p>
+<input id="ledgerinitialdate" autocomplete="off" name="ledgerinitialdate" class="text-center" placeholder="सुरू मिति" style="height: 35px;" >
+<input id="ledgerfinaldate" autocomplete="off" name="ledgerfinaldate" class="text-center" placeholder="अन्तिम मिति" style="height: 35px;" >
+<button type="submit" class="btn  btn-outline-primary">खोज</button>
+</form>
+</div>
+</div>
+<% } %>
+<script>
+var initialdate=<%= initialdate %>;
+var finaldate=<%= finaldate %>;
+</script>
+<script src="../js/groupledger.js"></script>
+</body>
+</html>

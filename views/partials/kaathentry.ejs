@@ -1,0 +1,68 @@
+
+
+<datalist id="kaathnamelist">
+     <% kaathname.forEach(function(result) { %>
+ 
+    <option><%= result.kaathname %>
+                              
+<%  }); %>
+</datalist>
+<datalist id="unit" >
+<option>
+        क्यु. फिट
+</option>       
+    
+</datalist>
+
+<div class="modal fade" id="kaathbibaranform" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content" style="margin:auto; width:900px;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">काठ विवरण</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="kaathbibaranform" action="/pay/1" method="post" onkeypress="return event.keyCode != 13;">
+                <div class="modal-body ">
+                    <div class="row ">
+                        <div class="col-md-12 iteminformation">
+                            <label class="text-danger col-12 text-center" id="errortext"> <% error %></label>
+    <div style="max-height: 400px;" class="table-responsive mt-3">
+        
+        <table class="kaathformtable  table table-bordered">
+            <tr class=" m-0 bg-dark text-white row text-center">
+                <th class="col-md-1">S.N.</th>
+                <th class="col-md-1">गुल्ली नं</th>
+                <th class="col-md-3">काठकाे नाम</th>
+                
+                <th class="col-md-3">प्रकार</th>
+                <th class="col-md-2">युनिट</th>
+                <th class="col-md-2">परिमाण</th>
+            </tr>
+        </table>
+    </div>
+   
+
+                    
+                        </div>
+                    </div>
+                </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn ml-5 d-none resetpayment justify-content-center  btn-primary"> Reset
+        </button>
+                        <button type="submit" onclick="javascript:submitdata(event);" class="btn ml-5 col-md-1 ml-5 w-25 btn-sm float-right btn-primary"> जाेड्नुहाेस
+        </button>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+<datalist id="type">
+    <option name=1>गत वर्षकाे माैज्दात</option>
+    <option name=2>ढलापडा</option>
+    <option name=3>पुनर्स्थापना</option>
+</datalist>
+
+       
+        

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<% include ../partials/head %>
+
+    <% include ../partials/stylebilling %>
+
+</head>
+<body>
+	<header>
+        <% include ../partials/header %>
+    </header>
+        <div class="row  ">
+        	<div class="col-12 m-0">
+            <h2 class="text-center mt-2">सालकाठ/दाउरा/घाँस/अन्य बिक्री </h2>
+            <form class="daybookform" action="/banpaidawar" method="post" >
+                <div class="row">
+                    <div class="col-12 mt-3 text-center">
+                        <label> सुरू मिति </label>
+                        <input id="banpaidawarinitialdate"  name="banpaidawarinitialdate" class="text-center ml-2 mr-2" autocomplete="off">
+                        <label > अन्तिम मिति </label>
+                        <input id="banpaidawarfinaldate" name="banpaidawarfinaldate" class="text-center ml-2 mr-2" autocomplete="off">
+                        <button id="daybookkhoj" class="btn btn-primary btn-md"> खाेज</button>
+                    </div>
+                </div>
+</form>
+            
+           </div>
+           <div class="col-3"></div>
+           <div class="col-6 mt-3 text-center">
+      <% if(status===1) { %>
+      <label class="text-center"> <%= initialdate %> देखि <%= finaldate %> </label>
+            <table class="w-100 table-bordered">
+            	<tr>
+            		<th>नाम</th>
+            		<th>मूल्य</th>
+            	</tr>
+            	<% result0.forEach(function(result){ %>
+            		<tr>
+            			<td><%= result.kaathname %></td>
+            			<td><%= result.price %></td>
+            		</tr>
+            		<% }) %>
+            		<% result1.forEach(function(result){ %>
+            		<tr>
+            			<td><%= result.daura %></td>
+            			<td><%= result.price %></td>
+            		</tr>
+            		<% }) %>
+            		<% result2.forEach(function(result){ %>
+            		<tr>
+            			<td><%= result.ghaas %></td>
+            			<td><%= result.price %></td>
+            		</tr>
+            		<% }) %>
+            		<% result3.forEach(function(result){ %>
+            		<tr>
+            			<td><%= result.name %></td>
+            			<td><%= result.price %></td>
+            		</tr>
+            		<% }) %>
+            		
+            </table>
+            <% } else {%>
+            <p class="text-center">डाटा उपलबध भएन</p>
+            <% } %>
+           </div>
+       </div>
+        
+<script type="text/javascript">
+var gc = $.calendars.instance('nepali', 'ne');
+var currentdate = gc.newDate();
+var currenttime = new Date();
+var currenttime = currenttime.toLocaleTimeString();
+$('#banpaidawarinitialdate').calendarsPicker({calendar: $.calendars.instance('nepali'),dateFormat: 'yyyy/mm/dd'})
+$('#banpaidawarfinaldate').calendarsPicker({calendar: $.calendars.instance('nepali'),dateFormat: 'yyyy/mm/dd'});
+</script>
+
+</body>
+
+</html>

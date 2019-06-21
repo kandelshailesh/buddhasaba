@@ -1,0 +1,117 @@
+<!-- views/partials/header.ejs -->
+<style>
+ nav ul
+      {
+        display: flex;
+             }
+
+      nav ul li
+      {
+        list-style: none;
+
+        position: relative;
+        margin:0 4px;
+
+        letter-spacing: 1px;
+        transform: translateX(-400px);
+        animation: slideIn .3s forwards;
+        transform: scaleX(0);
+
+      }
+
+  
+
+      ul li a:last-child{
+        margin-right: 0;
+      }
+      nav ul li a
+      {
+        text-decoration: none !important;
+        color: black; 
+        position: relative;
+        font-size:18px;
+       
+      }
+        
+          ul li a:hover
+          {
+          font-size: 23px;
+          }
+          ul li a:hover::before,ul li a:hover::after
+          {
+            transform:scaleX(1);
+          }
+          ul li a::before
+          {
+            top:-4px;
+            transform-origin: left;
+          }
+           
+            ul li a::after
+            {
+              bottom:-4px;
+              transform-origin:right;
+            }
+
+            @keyframes slideIn {
+  from{
+
+  }
+  to{
+    transform: translateX(0);
+    transform: scaleX(1);
+  }
+}
+</style>
+    <nav  class="navbar navbar-expand-lg sticky-top navbar-light" style=" background-image: url('/js/backgroundsuite.jpg');  background-size: 100% 100px; box-shadow: 0 8px 6px -6px #999;
+">
+  <a  class="navbar-brand text-white" href="#"><img style="width:70px; height:50px;" src="/js/forestlogo.png"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto text-white  ">
+      <li class="nav-item active">
+        <a class="nav-link text-white " href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white ml-2 " href="/pay">आम्दानी/खर्च</a>
+      </li>
+      <!-- <li class="nav-item dropdown">
+        <a class="nav-link text-white  dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link text-white ml-2 " href="/kaathdaura">काठ/दाउरा</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link text-white ml-2 "  href="/upavokta">उपभाेक्ता</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link text-white ml-2 " href="/padhadhikaari">पदाधिकारी</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link text-white ml-2 " href="/daybookkhoj">दैनिकी किताब</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link text-white ml-2 " href="/ledger">लेजर</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link text-white ml-2 " href="/jeansisaman">जिन्सी सामान</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link text-white ml-2 " href="/ghumtikosh">घुम्तीकाेष</a>
+      </li>
+
+    </ul>
+    
+  </div>
+</nav>

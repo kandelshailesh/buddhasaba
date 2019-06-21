@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="paymentreceiptjournalcontraform">
+            <div class="row">
+                <div class="col-12 mt-2 billdata">
+                    <br/>
+                    <label style="font-size:20px; width:150px; text-align: center;  background-color:red;" id="transactiontitle">घुम्तीकाेष</label><label class="ml-3">नं</label><h6 class=' text-dark  ml-2 d-inline mr-5 paymentno'></h6>
+                    <h6 class='dates text-dark d-inline float-right mr-5'>मिति:</h6>
+                </div>
+            </div>
+            <form id="khumtikoshinitialform" onkeypress="return event.keyCode != 13;" onsubmit="return false" action="" method="post">
+                <div style="max-height: 400px;" class="table-responsive mt-2">
+                    <table class="paymentheader table table-bordered  paymenttable">
+                        <tr class=" m-0 bg-dark text-white row text-center">
+                            <th class="col-md-2">क्रम</th>
+                            <th class="col-md-1">पहिचान संख्या</th>
+                            <th class="col-md-5">रकम</th>
+                            
+                            
+                        </tr>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 ml-5"></div>
+                    <label class="d-inline ml-5 form-control-sm text-center  col-md-2 " id="totaldebit">
+                        रु.0</label>
+                    
+                    <button type="reset" class="btn ml-2 d-none resetform justify-content-center  btn-danger"><i class="fa fa-times"></i></button>
+                </div>
+                <div class="row">
+
+               
+            
+                    <button type="submit"   class="btn ml-1 h-25 col-md-1 btn-primary"><i class="fa fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+        </div>

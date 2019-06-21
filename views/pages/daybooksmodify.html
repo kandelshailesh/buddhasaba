@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+    <style>
+    .credittable tr th {
+        height: 30px !important;
+    }
+
+    .credittable tr td {
+        height: 30px !important;
+    }
+
+    .debittable tr th {
+        height: 30px !important;
+    }
+
+    .debittable tr td {
+        height: 30px !important;
+    }
+    </style>
+</head>
+
+<body>
+    <h1 class="text-center">Day Book</h1>
+    <div class="container mt-5 ">
+        <div class="row">
+            <div class="col-md-3 text-center ml-3">
+                <!-- <ul class="list-group">
+                    <li id="1" class="list-group-item"><a href="#" id="month-01">January</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-02">February</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-03">March</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-04">April</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-05">May</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-06">June</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-07">July</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-08">August</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-09">September</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-10">October</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-11">November</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-12">December</a></li>
+                </ul> -->
+                <ul class="list-group">
+                    <li id="1" class="list-group-item"><a href="#" id="month-03">असार</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-04">साउन</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-05">भाद्र</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-06">अश्विन</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-07">कार्तिक</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-08">मंसिर
+                 </a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-09">पाैष</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-10">माघ</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-11">फाल्गुण</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-12">चैत्र</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-1">वैशाख</a></li>
+                    <li id="1" class="list-group-item"><a href="#" id="month-2">जेठ</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8 justify-contents-center">
+                <%- newdata %>
+
+            </div>
+        </div>
+    </div>
+        <p class="nodata" style="text-align-last: center; display: none;">No data yet </p>
+
+     <script type="text/javascript" src="../js/daybook.js"></script>
+</body>
+
+</html>

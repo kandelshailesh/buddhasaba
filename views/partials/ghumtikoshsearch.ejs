@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-md-2  p-0 " style="font-size:20px; max-height:300px; oveflow-y:scroll;">
+        <ul class="list-group border border-2  bg-light p-0">
+            <li class="list-group-item p-0  "><a style="text-decoration:none; color:white;" class="btn btn-success w-100 rounded-0" href="/ghumtikosh">डाटा राख्नुहाेस्</a></li>
+            <li class="list-group-item mt-2 p-0 border-red"><a style="text-decoration:none; color:white;" class="btn btn-success w-100 rounded-0" href="/ghumtikoshbill">प्राप्ति</a></li>
+            <li class="list-group-item mt-2 p-0 border-white"><a style="text-decoration:none; color:white;" class="btn btn-success w-100 rounded-0" href="/ghumtikoshsearch">खाेज</a></li>
+        </ul>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-8 mt-4 text-center">
+        <div class="row m-0">
+            <div class="col-md-2"></div>
+            <form class="form-inline text-center" action="/ghumtikoshsearch" method="post">  
+            <input id="startdate" name="startdate" class="form-control ml-3 text-center" autocomplete="off" placeholder="सुरू मिति" > 
+            <input id="enddate" name="enddate" class="form-control ml-3 text-center" autocomplete="off" placeholder="अन्तिम मिति" > 
+            <button class="btn btn-primary ml-2">खोज</button>
+            </form>
+          <!--   <div class="col-md-12">
+                <label>उपभोक्ता नं </label>
+                <br />
+                <input class="d-inline text-center form-control w-100" id="userid">
+            </div> -->
+            <% if (output>0) { %>
+            <table class=" mt-4 font-weight-normal col-md-12 table ghumtikoshsearchtable">
+                <tr class="row m-0 p-0">
+                    <th class="col-md-1">उपभोक्ता नं</th>
+                    <th class="col-md-3">उपभोक्ता नाम</th>
+                    <th class="col-md-2">लिनुको उदृेश्य </th>
+                    <th class="col-md-1">लिएको रकम</th>
+                    <th class="col-md-1">तिर्नुपर्ने रकम</th>
+                    <th class="col-md-1">तिरेको रकम</th>
+                    <th class="col-md-1"> बाँकी रकम</th>
+                    <th class="col-md-2"> लिएको मिति</th>
+
+                </tr>
+
+                <% result.forEach(function(results) { %>
+                
+            <%  var amount =(results.totalamount + results.totalamount * results.interestrate)/100;
+                    var paidamount = amount - results.remainingamount;
+                    var totalamount =results.totalamount; %>
+            <tr class="row m-0">
+        <td class="col-md-1"><%= getnepali(results.userid) %> </td>        
+        <td class="col-md-3"><%= results.fname +' '+ results.lname %> </td>
+		<td class="col-md-2"><%= result.aim %> </td>
+        <td class="col-md-1"><%= getnepali(results.totalamount) %></td>	
+		<td class="col-md-1"><%= getnepali(amount) %></td>	
+		<td class="col-md-1"><%= getnepali(paidamount) %></td>	
+        <td class="col-md-1"><%= getnepali(results.remainingamount) %></td>
+		<td class="col-md-2"><%= results.givendate %></td>
+        
+		</tr>
+                    
+              <%   }) } %>
+            </table>
+        </div>
+        
+    </div>
+</div>
+
+<script>
+$('#startdate').calendarsPicker({
+  calendar: $.calendars.instance('nepali'),
+  dateFormat: 'yyyy/mm/dd'
+});
+
+$('#enddate').calendarsPicker({
+  calendar: $.calendars.instance('nepali'),
+  dateFormat: 'yyyy/mm/dd'
+});
+</script>

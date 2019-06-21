@@ -1,0 +1,38 @@
+<div class="modal fade" id="daurabibaranform" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content" style="margin:auto; width:400px;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">काठ विवरण</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="daurabibaranform" action="/pay/3" method="post" onkeypress="return event.keyCode != 13;">
+                <div class="modal-body ">
+                    <div class="row ">
+                        <div class="col-md-12 iteminformation">
+                            <label class="text-danger col-12 text-center" id="errortext">
+                                <% error %></label>
+                            <label>प्रकार</label>
+                            <input type="text" list="type" name="collectiontype" class="form-control d-inline w-50 ml-2"><br/>
+                            <label>परिमाण</label>
+                            <input type="text" name="quantity" class="mt-2 w-50 d-inline form-control">
+
+                        </div>
+                </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn d-none resetpayment justify-content-center  btn-primary"> Reset
+                    </button>
+                    <button type="submit" onclick="javascript:submitdata(event);" class="btn ml-2 btn-sm float-right btn-primary"> जाेड्नुहाेस
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<datalist id="type">
+    <option name=1>गत वर्षकाे माैज्दात</option>
+    <option name=2>ढलापडा</option>
+    <option name=3>पुनर्स्थापना</option>
+</datalist>

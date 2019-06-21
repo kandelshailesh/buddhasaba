@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+
+
+	<% include ../partials/head %>
+    <% include ../partials/stylepayment %>
+    <link rel="stylesheet" href="https://unpkg.com/nepali-date-picker@2.0.0/dist/nepaliDatePicker.min.css" integrity="sha384-Fligaq3qH5qXDi+gnnhQctSqfMKJvH4U8DTA+XGemB/vv9AUHCwmlVR/B3Z4nE+q" crossorigin="anonymous">
+	<title></title>
+</head>
+<body>
+	<datalist id="accounttype" class="accountnamedetails" >
+		
+    <% accountinformation.forEach(function(result) { if( result.id=='1'){ %>
+
+                                    <option name='<%= result.id %>'>
+                                        <%= result.accountname %>
+                                    </option>
+                                    <% } else { %>
+                                    <option name='<%= result.id %>'>
+                                        <%= result.accountname %>
+                                    </option>
+                                    <% } %>
+                                    <hr/>
+                                    <% }); %>
+                                    </datalist>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="paymentreceiptjournalcontraform">
+            <div class="row">
+                <div class="col-12 mt-2 align-content-center billdata">
+                    <br/>
+                    <label style="font-size:20px; width:150px; text-align: center;  background-color:red;" id="transactiontitle">भुक्तानी</label><label class="ml-3">नं</label><h6 class=' text-dark  ml-2 d-inline mr-1 paymentno'></h6><label id="billno"><%= result[0].voucherno %></label>
+                    <input id="datechange" value="<%= result[0].paymentdate %>" class="border-0 d-inline p-0 mt-1  float-right" style="font-size: 14px;" ><h6 class='dates text-dark d-inline float-right mt-1 mr-2'>मिति: </h6>
+                </div>
+            </div>
+            <form id="paymenttranscation" onkeypress="return event.keyCode != 13;" onsubmit="return false" action="" method="post">
+                <div style="max-height: 400px;" class="table-responsive mt-2">
+                    <table class="paymentheader table table-bordered  paymenttable">
+                        <tr class=" m-0 bg-dark text-white row text-center">
+                            <th class="col-md-2">क्रम</th>
+                            <th class="col-md-1">के/डे</th>
+                            <th class="col-md-5">खाता</th>
+                            <th class="col-md-2">डे(रु)</th>
+                            <th class="col-md-2">के(रु)</th>
+                            
+                        </tr>
+                        <% for (var i =0; i< result.length; i++) { %>
+                       
+                        <tr  class=" m-0 row row-<%= i+1 %> text-center">
+      <td id="sn" class="col-md-2 p-1  "><%= i+1 %></td>
+      <td   class="col-md-1 p-0"><input class="form-control" name="dctype" id="dctype-<%= i+1 %>" type="text" maxlength="2" oninput="javascript:oninputdctype(event);" onkeydown="javascript:onkeydowndctype(event);" value="<%= result[i].dctype %>" />
+      
+      <td  class="col-md-5 p-0"><input list="accounttype"  name="accounttype-<%= i+1 %>" onkeydown="accounttype(event)" id="accounttype-<%= i+1 %>" value='<%= result[i].account %>'  type="text" class="form-control" /></td>
+
+      
+<% if(result[i].dctype=== 'डे') { %>
+
+      <td  class="col-md-2 p-0"><input onkeypress="createnewpayment(event)" oninput="javascript:checktotaldc();" name="debit" id="debit-<%= i+1 %>" value='<%= result[i].dcamount %>' type="text" pattern="[०-९]*" class="form-control text-center"  /></td>
+      <td class="col-md-2 p-0 "><input onkeypress="createnewpayment(event)" oninput="javascript:checktotaldc()" name="credit" id="credit-<%= i+1 %>" type="text" pattern="[०-९]*" class="form-control p-0 text-center" disabled="disabled" /></td>
+
+      <% } else { %>
+      <td class="col-md-2 p-0"><input onkeypress="createnewpayment(event)" oninput="javascript:checktotaldc();" name="debit" id="debit-<%= i+1 %>" type="text" pattern="[०-९]*" class="form-control text-center p-0" disabled="disabled" /></td>
+      <td   class="col-md-2 p-0"><input onkeypress="createnewpayment(event)" oninput="javascript:checktotaldc();" name="credit" id="credit-<%= i+1 %>" value="<%= result[i].dcamount %>"  type="text" pattern="[०-९]*" class="form-control text-center" /></td>
+
+      <% } %>
+    </tr>
+
+                       <% } %>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 ml-5"></div>
+                    <label class="d-inline ml-5 form-control-sm text-center  col-md-2 " id="totaldebit">
+                        रु.<label class="totaldebitamount"><%= totaldebit %></label></label>
+                    <label class="d-inline form-control-sm col-md-2  text-center" id="totalcredit">रु.<label class="totalcreditamount"><%= totalcredit %></label></label>
+                    <button type="reset" class="btn ml-2 d-none resetpayment justify-content-center  btn-danger"><i class="fa fa-times"></i></button>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                      
+                        <textarea id="narrationbox" style="text-align: left;" rows="2" cols="70"><%= result[0].narration %></textarea>
+                        
+                    </div>
+               
+            
+                    <button type="submit"   class="btn ml-1 h-25 col-md-1 btn-primary"><i class="fa fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+ <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script> -->
+<script type="text/javascript" src="/js/jquery.nepaliDatePicker.min.js"></script>
+<link rel="stylesheet" href="/js/nepaliDatePicker.min.css" >
+
+<script src="/js/prj.js"></script>
+<script>
+
+
+</script>
+</html>

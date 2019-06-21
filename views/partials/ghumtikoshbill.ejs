@@ -1,0 +1,77 @@
+<div class="row">
+   <div class="col-md-2  p-0 " style="font-size:20px; max-height:300px; oveflow-y:scroll;">
+        <ul class="list-group border border-2  bg-light p-0">
+            <li class="list-group-item p-0  "><a style="text-decoration:none; color:white;" class="btn btn-success w-100 rounded-0" href="/ghumtikosh">डाटा राख्नुहाेस्</a></li>
+            <li class="list-group-item mt-2 p-0 border-red"><a style="text-decoration:none; color:white;" class="btn btn-success w-100 rounded-0" href="/ghumtikoshbill">प्राप्ति</a></li>
+            <li class="list-group-item mt-2 p-0 border-white"><a style="text-decoration:none; color:white;" class="btn btn-success w-100 rounded-0" href="/ghumtikoshsearch">खाेज</a></li>
+        </ul>
+    </div>
+       <div class="col-md-1"></div>
+    <div class="col-md-7 text-center mt-4">
+        
+   <form class="ghumtikoshsearchform" onkeypress="return event.keyCode != 13;" onsubmit="return false">
+
+                <div class="row m-0">
+                <div class="col-md-3 ">
+    <label>उपभाेक्ता नं </label>
+    <br/>
+    <input  class="d-inline text-center form-control w-100" id="userid"  >
+</div>
+<div class="col-md-4  ">
+    <label>उपभाेक्ता नाम</label>
+    <br/>
+    <input  class="d-inline text-center form-control w-100" id="flname"  >
+</div>
+    <div class=" text-center col-md-4">
+    <label> तिर्नु पर्ने रकम </label>
+                     <br/>
+    <input  class="d-inline text-center form-control w-100" id="totalamount" disabled  >
+</div>
+</div>
+           <div class="row m-0 mt-3">
+                <div class=" col-md-3 ">
+                     
+   
+    <label> आएकाे रकम</label>
+    <br/>
+    <input  class="d-inline text-center form-control w-100" id="paidamount"  >
+</div>
+<div class="col-md-4">
+ <label> बाँकी रकम</label>
+    <br/>
+
+    <input  class="d-inline text-center form-control w-100" id="remainingamount" disabled  >
+</div>
+    <div class="col-md-4">
+     <label> मिति</label>
+    <input  class="d-inline text-center form-control w-100" id="paymentdate"  >
+</div>
+</div>
+    <!-- <label> तिर्नु पर्ने रकम </label>
+    <input  class="d-inline form-control w-25" id="totalamount"  >
+    <br/>
+    <label> अाएकाे रकम</label>
+    <input  class="d-inline form-control w-25" id="paidamount"  >
+
+    <label> बाँकी रकम</label>
+    <input  class="d-inline form-control w-25" id="remainingamount"  >
+    <br/> -->
+   
+    <button   class="d-inline form-control mt-4 w-25 btn-outline-primary" id="ghumtikoshadd">जाेड्नुहाेस</button>
+        <button   class="d-none form-control ghumtikoshreset mt-4 w-25 btn-outline-primary" type="reset" id="ghumtikoshreset">जाेड्नुहाेस</button>
+
+</form>
+<div class="appendresult mt-5">
+    </div>
+<!-- 
+                  <label> Userid </label>
+    <input class="form-control p-1 w-50 d-inline" style="height:36px !important;" id="userid"  >
+    <label> Final Date </label>
+    <input id="daybookfinaldate">
+    <button  class="btn btn-primary btn-sm d-inline" id="daybookkhoj"> खाेज</button>
+                </div>
+            </div>
+        </div> -->
+    </div>
+            
+        </div>
