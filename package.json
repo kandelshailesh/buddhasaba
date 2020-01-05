@@ -28,7 +28,7 @@
     "mysql": "^2.16.0",
     "mysql-events": "0.0.11",
     "nepali-date-picker": "^2.0.1",
-    "open": "0.0.5",
+    "open": "6.0.0",
     "path": "^0.12.7",
     "pdfkit": "^0.10.0",
     "pdfmake": "^0.1.57"
