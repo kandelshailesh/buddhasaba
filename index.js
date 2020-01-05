@@ -119,22 +119,22 @@ const saltRounds = 10;
 var nepali = require('get-nepali-number');
 
 
-var con = mysql.createConnection({
-    host: "localhost",
-    user: "buddha",
-    password: "Sha677@#",
-    database: 'buddhasaba',
-    multipleStatements: true
-});
-
 // var con = mysql.createConnection({
 //     host: "localhost",
-//     user: "root",
-//     password: "",
-//     port: 3308,
+//     user: "buddha",
+//     password: "Sha677@#",
 //     database: 'buddhasaba',
 //     multipleStatements: true
 // });
+
+var con = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    port: 3306,
+    database: 'buddhasaba',
+    multipleStatements: true
+});
 
 
 getEmployeeNames = function () {
@@ -1343,7 +1343,7 @@ app.post('/pay/:id', function (req, res) {
             }
 
             if (length === 1) {
-                data.push(getenglish(a['gullino']), a['kaathname'], a['collectiontype'], a['unit'], getenglish(a['quantity']));
+                data.push(getenglish(a['gullino']), a['kaathname'],a['naapsize'],a['collectiontype'], a['unit'], getenglish(a['quantity']));
                 data1.push(collectiontype(a['collectiontype']));
                 data2.push(Number(getenglish(a['quantity'])));
                 data3.push(a['kaathname']);
@@ -1368,7 +1368,7 @@ app.post('/pay/:id', function (req, res) {
 
 
             //   console.log("titleformdata"+titleformdata);
-            var insert1 = "INSERT INTO `kaathaamdani`(`gullino`, `kaathname`, `collectiontype`, `unit`, `quantity`) VALUES (?)";
+            var insert1 = "INSERT INTO `kaathaamdani`(`gullino`, `kaathname`,`naapsize`, `collectiontype`, `unit`, `quantity`) VALUES (?)";
             con.query(insert1, [data], function (err, result) {
                 // console.log([paymentdata]);
                 if (err) {
@@ -1709,7 +1709,7 @@ app.post('/pay/:id', function (req, res) {
 
 
 
-                console.log("Number of records inserted: " + result.affectedRows);
+                // console.log("Number of records inserted: " + result.affectedRows);
                 // res.json({'result':'Submitted'});
             });
 

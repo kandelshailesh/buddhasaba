@@ -12,10 +12,17 @@
          <input id="salesdate" name="salesdate" style="font-size: 15px; border:1px solid lightblue !important; height:32px !important; border-radius:5px !important;  box-shadow: 2px 2px lightblue !important;width:100px !important; " type="text" class=" ml-2 form-control mr-3 text-center p-0 d-inline float-right " autocomplete="off" required >
         <label class='salesdateclass text-dark d-inline float-right'>मिति:</label>
         <br>
+        <label style="font-size:15px;">ठेगाना</label>
+
+        <input style="font-size: 15px; border:1px solid lightblue !important; height:32px !important; border-radius:5px !important; text-align: center;  box-shadow: 2px 2px lightblue !important;" type="text"  required placeholder="ठेगाना" name="address" id="address" class="form-control w-25 d-inline ml-2 mr-2 mb-2 " autofocus>
+        <br/>
         <label style="font-size:15px;">बिक्री प्रकार</label>
         <input style="font-size: 15px; border:1px solid lightblue !important; height:32px !important; border-radius:5px !important;  box-shadow: 2px 2px lightblue !important;" type="text" list="bikritype" required name="bikritypes" id="bikritypes" class="form-control w-25 d-inline ml-2 mr-2 " autofocus>
+        
         <datalist id="bikritype" >
             <option>उपभाेक्ता भित्र बिक्री</option>
+            <option>ख वर्गको उपभाेक्ता</option>
+
             <option>पाेल चिरान</option>
             <option>जि.ब. आपूर्ति </option>
             <option>लिलाम प्रक्रिया</option>
@@ -36,8 +43,8 @@
             <tr style="font-size:20px !important;" class=" m-0 row text-center">
             	<th  style="font-size:12px !important;" class="col-md-1">S.N.</th>
                 <th  style="font-size:12px !important;" class="col-md-1">गुल्ली नं</th>
-                <th  style="font-size:12px !important;" class="col-md-4">काठकाे नाम</th>
-                <!-- <th class="col-md-1">ग्रेड</th> -->
+                <th  style="font-size:12px !important;" class="col-md-3">काठकाे नाम</th>
+                <th class="col-md-1">नाप साइज</th>
                 <th  style="font-size:12px !important;" class="col-md-2">परिमाण</th>
                 <th  style="font-size:12px !important;" class="col-md-2">मूल्य/Cft</th>
                 <th  style="font-size:12px !important;" class="col-md-2">जम्मा</th>

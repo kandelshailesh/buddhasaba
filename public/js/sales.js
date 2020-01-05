@@ -145,8 +145,8 @@ function printbill(event) {
   var upavoktaname;
   var title;
   var billno = $("#billno").val();
-
-
+  var address = $("#address").val();
+  var nagariktano= $("#nagariktano").val();
   if (bikritype === 'उपभाेक्ता भित्र बिक्री') {
     upavoktaid = $("#userid").val();
     upavoktaname = $("#username").val();
@@ -165,7 +165,7 @@ function printbill(event) {
 {/* <h4  class="mt-3" >बुद्द सामुदायिक वन उपभोक्ता समूह</h4>
 देवदेह-५, खैरेनी */}
 
-  
+      
   if (bikritype === "उपभाेक्ता भित्र बिक्री") {
     title = `<div class="logo" style="margin-left:240px !important;">
 <h4  class="mt-3" >बुद्द सामुदायिक वन उपभोक्ता समूह</h4>
@@ -179,6 +179,8 @@ function printbill(event) {
        <label class='salesdateclass text-dark ml-3 d-inline '>मिति:</label>
          <input id="salesdate" name="salesdate" style="width:100px !important; " type="text" class=" ml-2  form-control mr-3 text-left p-0 d-inline" value="${salesdate}"  />
          <br>
+         <label > ठेगाना:</label>
+         <input  type="text" value='${address}' class="d-inline">
         <label > बिक्री प्रकार:</label>
         <input  type="text" value='${bikritype}' class="d-inline">
 
@@ -186,7 +188,7 @@ function printbill(event) {
         <input   type="text" name="userid" id="userid" value='${upavoktaid}' style="width:30px;" class=" d-inline mr-3">         
         <label  >नाम:</label>
         <input   type="text" name="accountname" value='${upavoktaname}' id="username" class="d-inline">`;
-  } else {
+  } else if(bikritype==="ख वर्गको उपभाेक्ता") {
 
     title = `<div class="logo" style="margin-left:240px !important;">
     <h4  class="mt-3" >बुद्द सामुदायिक वन उपभोक्ता समूह</h4>
@@ -199,7 +201,34 @@ function printbill(event) {
          <input  type="text" value='${billno}' class="d-inline">
         <label class='salesdateclass text-dark ml-3 d-inline '>मिति:</label>
           <input id="salesdate" name="salesdate" style="width:100px !important; " type="text" class=" ml-2  form-control mr-3 text-left p-0 d-inline" value="${salesdate}"  />
+          <br>  <label > ठेगाना:</label>
+          <input  type="text" value='${address}' class="d-inline">
+         <label > बिक्री प्रकार:</label>
+         <input  type="text" value='${bikritype}' class="d-inline"> 
+         <br>
+         <label style="font-size:15px;" class="ml-2">नागरिकता नं </label>
+         
+        <input   type="text"  name="accountname" value='${nagariktano}' id="username" class="d-inline">         
+         <label  >नाम:</label>
+         <input   type="text" name="accountname" value='${upavoktaname}' id="username" class="d-inline ">`;
+  }
+  else
+  {
+    
+    title = `<div class="logo" style="margin-left:240px !important;">
+    <h4  class="mt-3" >बुद्द सामुदायिक वन उपभोक्ता समूह</h4>
+    <p style="margin-left:100px !important;">देवदेह-५, खैरेनी</p>
+   </div>
+   <br/>
+   <div class="row">
+  <div class="col-12 ml-5 salespurchasebill">
+         <label >बिल नं:</label>
+         <input  type="text" value='${billno}' class="d-inline">
+        <label class='salesdateclass text-dark ml-3 d-inline '>मिति:</label>
+          <input id="salesdate" name="salesdate" style="width:100px !important; " type="text" class=" ml-2  form-control mr-3 text-left p-0 d-inline" value="${salesdate}"  />
           <br>
+          <label > ठेगाना:</label>
+          <input  type="text" value='${address}' class="d-inline">
          <label > बिक्री प्रकार:</label>
          <input  type="text" value='${bikritype}' class="d-inline"> 
          <label  >नाम:</label>
@@ -249,6 +278,7 @@ function printbill(event) {
             <tr>
                 <td>गुल्ली नं</td>
                 <td>काठकाे नाम</td>
+                <td>नाप साइज</td>
                 <td>परिमाण</td>
                 <td>मूल्य/Cft</td>
                 <td>जम्मा</td>
@@ -389,7 +419,8 @@ function printbill(event) {
 
             </style>
         <body>
-        ${title}${kaathtable}${dauratable}${ghaastable}${anyetable}${totalamountdiv}</div></div>
+        ${title}${kaathtable}${dauratable}${ghaastable}${anyetable}${totalamountdiv}
+        <h4 style="float:right; margin-right:200px;">----------<br>Signature</h1></div></div>
         </body>
 
           </html>`);
@@ -435,6 +466,13 @@ $('input#bikritypes').on('input', function (e) {
         <input type="text" name="userid" id="userid" style="width:50px;" class="form-control d-inline ml-2 mr-2" autofocus>         
         <label style="font-size:15px;">नाम</label>
         <input type="text" name="accountname" id="username" class="form-control w-25 d-inline ml-2" autofocus>`);
+  } else if (value === 'ख वर्गको उपभाेक्ता')
+  {
+    $('.salespurchase').html('');
+    $('.salespurchase').append(`<label style="font-size:15px;" class="ml-2">नागरिकता नं </label>
+        <input type="text" name="userid" id="nagariktano" style="width:150px;" class="form-control d-inline ml-2 mr-2" autofocus>         
+        <label style="font-size:15px;">नाम</label>
+        <input type="text" name="accountname" id="username" class="form-control w-25 d-inline ml-2" autofocus>`);
   } else if (value === 'पाेल चिरान') {
     $('.salespurchase').html('');
 
@@ -451,10 +489,9 @@ $('input#bikritypes').on('input', function (e) {
     $('.salespurchase').html('');
 
     $('.salespurchase').append(`<label style="font-size:15px;">नाम</label>
-        <input type="text" name="accountname" id="username" class="form-control w-25 d-inline ml-2" autofocus><label style="font-size:15px;">ठेगाना</label>
-        <input type="text" name="address" id="address" class="form-control w-25 d-inline ml-2" autofocus>`);
+        <input type="text" name="accountname" id="username" class="form-control w-25 d-inline ml-2" autofocus>`);
   }
-})
+});
 
 
 for (var i = 1; i < 2; i++) {
@@ -462,13 +499,13 @@ for (var i = 1; i < 2; i++) {
   $('.salestable').append(`<tr  class=" m-0 row text-center">
       <td id="sn" class="col-md-1">${i}</td>
       <td class="col-md-1 p-0"><input class="form-control text-center" name="gullino" id="gullino-${i}" type="text" /></td>
-      <td   class="col-md-4 p-0"><input class="form-control text-center" name="kaathname" id="kaathname-${i}" type="text" /></td>
+      <td   class="col-md-3 p-0"><input class="form-control text-center" name="kaathname" id="kaathname-${i}" type="text" /></td>
+      <td   class="col-md-1 p-0"><input class="form-control text-center" name="naapsize" id="naapsize-${i}" type="text" /></td>
       
-      <td  class="col-md-2 p-0"><input  name="quantity" pattern="^[०-९\.]*$" id="quantity-${i}" type="text" class="form-control text-center"  /></td>
-      <td   class="col-md-2 p-0"><input name="per" pattern="^[०-९\.]*$" id="per-${i}"  type="text" class="form-control text-center"  value='०' /></td>
-      <td   class="col-md-2 p-0"><input  name="amount" onkeydown="createnewitem(event)" id="amount-${i}"  value='०' class="form-control text-center"   /></td>
-    </tr>`)
-
+      <td  class="col-md-2 p-0"><input pattern="^[०-९\.]*$" name="quantity" id="quantity-${i}" type="text" class="form-control text-center"  /></td>
+      <td   class="col-md-2 p-0"><input pattern="^[०-९\.]*$" name="per" id="per-${i}" class="form-control text-center" /></td>
+      <td   class="col-md-2 p-0"><input readonly name="amount" onkeydown="createnewitem(event)" id="amount-${i}"  class="form-control text-center"   /></td>
+    </tr>`);
 }
 
 
@@ -575,7 +612,7 @@ $(document).on('keyup', '[id^=gullino]', function (e) {
         // $(`#kaathgrade-${targetid}`).val('');
         $(`#quantity-${targetid}`).val('');
         $(`#kaathname-${targetid}`).val(data.result[0].kaathname);
-        // $(`#kaathgrade-${targetid}`).val(data.result[0].grade);
+        $(`#naapsize-${targetid}`).val(data.result[0].naapsize);
         $(`#quantity-${targetid}`).val(returnnepalinumber(data.result[0].quantity));
       }
 
@@ -597,15 +634,16 @@ function createnewitem(e) {
 
   if ($(`#kaathname-${i}`).length === 0 && e.keyCode ===
     13) {
-    $('.salestable').append(`<tr  class=" m-0 row text-center">
+      $('.salestable').append(`<tr  class=" m-0 row text-center">
       <td id="sn" class="col-md-1">${i}</td>
       <td class="col-md-1 p-0"><input class="form-control text-center" name="gullino" id="gullino-${i}" type="text" /></td>
-      <td   class="col-md-4 p-0"><input class="form-control text-center" name="kaathname" id="kaathname-${i}" type="text" /></td>
+      <td   class="col-md-3 p-0"><input class="form-control text-center" name="kaathname" id="kaathname-${i}" type="text" /></td>
+      <td   class="col-md-1 p-0"><input class="form-control text-center" name="naapsize" id="naapsize-${i}" type="text" /></td>
       
       <td  class="col-md-2 p-0"><input pattern="^[०-९\.]*$" name="quantity" id="quantity-${i}" type="text" class="form-control text-center"  /></td>
       <td   class="col-md-2 p-0"><input pattern="^[०-९\.]*$" name="per" id="per-${i}" class="form-control text-center" /></td>
       <td   class="col-md-2 p-0"><input readonly name="amount" onkeydown="createnewitem(event)" id="amount-${i}"  class="form-control text-center"   /></td>
-    </tr>`)
+    </tr>`);
 
     $("#totallist").val(`${i}`);
 
