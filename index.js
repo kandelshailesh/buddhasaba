@@ -127,6 +127,15 @@ var nepali = require('get-nepali-number');
 //     multipleStatements: true
 // });
 
+// var con = mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: "",
+//     port: 3306,
+//     database: 'buddhasaba',
+//     multipleStatements: true
+// });
+
 var con = mysql.createConnection({
     host: "localhost",
     user: "buddhasabanew",
@@ -135,7 +144,6 @@ var con = mysql.createConnection({
     database: 'ansunepa_buddhasabanew',
     multipleStatements: true
 });
-
 
 getEmployeeNames = function () {
     return new Promise(function (resolve, reject) {
