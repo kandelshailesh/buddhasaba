@@ -129,10 +129,10 @@ var nepali = require('get-nepali-number');
 
 var con = mysql.createConnection({
     host: "localhost",
-    user: "root",
-    password: "",
+    user: "buddhasabanew",
+    password: "buddhasabanew@123",
     port: 3306,
-    database: 'buddhasaba',
+    database: 'ansunepa_buddhasabanew',
     multipleStatements: true
 });
 
